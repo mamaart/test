@@ -1,0 +1,16 @@
+---
+kind: pipeline
+type: kubernetes
+name: production
+
+trigger:
+  branches:
+    - main
+  event:
+    - push
+
+steps:
+  - name: test
+    image: python
+    commands:
+      - python ./main.py
